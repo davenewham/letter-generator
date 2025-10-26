@@ -12,6 +12,16 @@ export const layout: LayoutFunction = (
 ) => ({
     pageSize: 'A4',
     pageMargins: [mm2pt(25), mm2pt(27), mm2pt(20), mm2pt(16.9)], // [left, top, right, bottom]
+    footer: function (currentPage, pageCount) {
+        if (currentPage === 1) return null;
+
+        return {
+            text: `Page ${currentPage} of ${pageCount}`,
+            fontSize: 9,
+            alignment: 'right',
+            margin: [0, 0, mm2pt(20), 0],
+        };
+    },
     content: [
         {
             columns: [

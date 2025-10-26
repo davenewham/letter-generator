@@ -14,11 +14,13 @@ export const generateReference = (date: Date): string =>
 // TODO: This can only handle pdfmake content with `{text: <content>}`. Anything else is not changed.
 export const applyFunctionToPdfMakeContent = (
     content: PdfMakeContent | undefined,
-    func: (text: string) => PdfMakeContent
+    func: (text: string) => PdfMakeContent,
 ): PdfMakeContent => {
     if (!content) return '';
     if (typeof content === 'string') return func(content);
-    if ('text' in content) return { ...content, text: applyFunctionToPdfMakeContent(content.text, func) };
+    if (typeof content === 'number') return content;
+    if ('text' in content)
+        return { ...content, text: applyFunctionToPdfMakeContent(content.text, func) } as typeof content;
     if (Array.isArray(content)) return content.map((t) => stripTags(t));
     return content;
 };

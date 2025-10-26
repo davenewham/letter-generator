@@ -26,7 +26,8 @@
         "prepack": "rm -rf dist && yarn build",
         "build": "tsc",
         "watch": "tsc -w",
-        "test": "tsx --test tests/*.test.ts"
+        "test": "tsx --test tests/*.test.ts",
+        "prepare": "husky"
     },
     "files": [
         "/dist"
@@ -35,24 +36,19 @@
         "pdfmake": "^0.2.5"
     },
     "devDependencies": {
-        "@types/node": "^20.12.12",
-        "@types/pdfmake": "^0.1.21",
-        "@typescript-eslint/eslint-plugin": "^5.15.0",
-        "@typescript-eslint/parser": "^5.15.0",
-        "eslint": "^8.11.0",
-        "eslint-config-prettier": "^8.5.0",
+        "@types/node": "^24.9.1",
+        "@types/pdfmake": "^0.2.12",
+        "@typescript-eslint/eslint-plugin": "^8.46.2",
+        "@typescript-eslint/parser": "^8.46.2",
+        "eslint": "^9.38.0",
+        "eslint-config-prettier": "^10.1.8",
         "eslint-plugin-eslint-comments": "^3.2.0",
         "eslint-plugin-import": "^2.25.4",
-        "husky": "4.3.7",
-        "lint-staged": "^12.3.7",
-        "prettier": "^2.6.0",
+        "husky": "9.1.7",
+        "lint-staged": "^16.2.6",
+        "prettier": "^3.6.2",
         "tsx": "^4.20.6",
-        "typescript": "^4.6.2"
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "lint-staged"
-        }
+        "typescript": "^5.9.3"
     },
     "lint-staged": {
         "*.{ts,js,scss,json}": [

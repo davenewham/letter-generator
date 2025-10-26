@@ -38,4 +38,16 @@ export class PdfRenderer {
             });
         });
     }
+
+    /**
+     *
+     * @returns Buffer
+     */
+    getBuffer(): Promise<Buffer> {
+        return new Promise((resolve) => {
+            pdfMake.createPdf(this.doc).getBuffer((buffer) => {
+                resolve(buffer);
+            });
+        });
+    }
 }

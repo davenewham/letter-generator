@@ -71,12 +71,7 @@ export class Letter {
     }
 
     setProps(props: LetterProps) {
-        for (const i in props) {
-            // This is obviously fine but TypeScript isn't smart enough to figure that and I'm too lazy to teach it. :D
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore
-            if (Object.prototype.hasOwnProperty.call(this.props, i)) this.props[i] = props[i];
-        }
+        this.props = { ...this.props, ...props };
 
         this.doc = this.layout(
             formatAddress(this.props.sender_address, ' • '),
